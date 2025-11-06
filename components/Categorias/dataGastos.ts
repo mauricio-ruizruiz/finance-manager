@@ -88,6 +88,7 @@ export const CategoriasGastos = [
 export const dataCategoriasGastos = [
   // Alimentos
   {
+    id: 1,
     categoria: 'Alimentos',
     grupo: 'Comercios',
     subgrupo: 'Bar',
@@ -96,6 +97,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 2,
     categoria: 'Alimentos',
     grupo: 'Comercios',
     subgrupo: 'Café',
@@ -104,6 +106,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 3,
     categoria: 'Alimentos',
     grupo: 'Comercios',
     subgrupo: 'Restaurante',
@@ -113,6 +116,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 4,
     categoria: 'Alimentos',
     grupo: 'Comida',
     subgrupo: 'A Domicilio',
@@ -121,6 +125,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 5,
     categoria: 'Alimentos',
     grupo: 'Comida',
     subgrupo: 'Callejera',
@@ -129,6 +134,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 6,
     categoria: 'Alimentos',
     grupo: 'Comida',
     subgrupo: 'Comida Rápida',
@@ -137,6 +143,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 7,
     categoria: 'Alimentos',
     grupo: 'Comida',
     subgrupo: 'Tianguis',
@@ -145,6 +152,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 8,
     categoria: 'Alimentos',
     grupo: 'Comida',
     subgrupo: 'Tiendita',
@@ -154,6 +162,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 9,
     categoria: 'Alimentos',
     grupo: 'Despensa',
     subgrupo: 'Mercado',
@@ -162,6 +171,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 10,
     categoria: 'Alimentos',
     grupo: 'Despensa',
     subgrupo: 'Supermercado',
@@ -171,8 +181,17 @@ export const dataCategoriasGastos = [
   },
 
   // Compras
-  { categoria: 'Compras', grupo: 'Accesorios', subgrupo: '', emoji: '👜', tipo: '', helperKey: '' },
   {
+    id: 11,
+    categoria: 'Compras',
+    grupo: 'Accesorios',
+    subgrupo: '',
+    emoji: '👜',
+    tipo: '',
+    helperKey: '',
+  },
+  {
+    id: 12,
     categoria: 'Compras',
     grupo: 'Artículos para el Hogar',
     subgrupo: '',
@@ -181,6 +200,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 13,
     categoria: 'Compras',
     grupo: 'Electrónica',
     subgrupo: '',
@@ -189,6 +209,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 14,
     categoria: 'Compras',
     grupo: 'Herramientas',
     subgrupo: '',
@@ -197,6 +218,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 15,
     categoria: 'Compras',
     grupo: 'Higiene Personal',
     subgrupo: '',
@@ -204,9 +226,26 @@ export const dataCategoriasGastos = [
     tipo: '',
     helperKey: '',
   },
-  { categoria: 'Compras', grupo: 'Muebles', subgrupo: '', emoji: '🛋️', tipo: '', helperKey: '' },
-  { categoria: 'Compras', grupo: 'Oficina', subgrupo: '', emoji: '📎', tipo: '', helperKey: '' },
   {
+    id: 16,
+    categoria: 'Compras',
+    grupo: 'Muebles',
+    subgrupo: '',
+    emoji: '🛋️',
+    tipo: '',
+    helperKey: '',
+  },
+  {
+    id: 17,
+    categoria: 'Compras',
+    grupo: 'Oficina',
+    subgrupo: '',
+    emoji: '📎',
+    tipo: '',
+    helperKey: '',
+  },
+  {
+    id: 18,
     categoria: 'Compras',
     grupo: 'Productos de Limpieza para el Hogar',
     subgrupo: '',
@@ -214,8 +253,17 @@ export const dataCategoriasGastos = [
     tipo: '',
     helperKey: '',
   },
-  { categoria: 'Compras', grupo: 'Regalos', subgrupo: '', emoji: '🎁', tipo: '', helperKey: '' },
   {
+    id: 19,
+    categoria: 'Compras',
+    grupo: 'Regalos',
+    subgrupo: '',
+    emoji: '🎁',
+    tipo: '',
+    helperKey: '',
+  },
+  {
+    id: 20,
     categoria: 'Compras',
     grupo: 'Ropa y Calzado',
     subgrupo: '',
@@ -224,6 +272,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 21,
     categoria: 'Compras',
     grupo: 'Tiempo libre',
     subgrupo: '',
@@ -234,6 +283,7 @@ export const dataCategoriasGastos = [
 
   // Gastos Financieros
   {
+    id: 22,
     categoria: 'Gastos Financieros',
     grupo: 'Gastos Financieros',
     subgrupo: 'Comisiones',
@@ -242,6 +292,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 23,
     categoria: 'Gastos Financieros',
     grupo: 'Gastos Financieros',
     subgrupo: 'Impuestos',
@@ -250,6 +301,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 24,
     categoria: 'Gastos Financieros',
     grupo: 'Gastos Financieros',
     subgrupo: 'Intereses',
@@ -260,6 +312,7 @@ export const dataCategoriasGastos = [
 
   // Mascota
   {
+    id: 25,
     categoria: 'Mascota',
     grupo: 'Mascota',
     subgrupo: 'Baño',
@@ -268,6 +321,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 26,
     categoria: 'Mascota',
     grupo: 'Mascota',
     subgrupo: 'Croquetas',
@@ -276,6 +330,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 27,
     categoria: 'Mascota',
     grupo: 'Mascota',
     subgrupo: 'Juguetes y Accesorios',
@@ -284,6 +339,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 28,
     categoria: 'Mascota',
     grupo: 'Mascota',
     subgrupo: 'Medicinas y Suplementos',
@@ -292,6 +348,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 29,
     categoria: 'Mascota',
     grupo: 'Mascota',
     subgrupo: 'Otros',
@@ -300,6 +357,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 30,
     categoria: 'Mascota',
     grupo: 'Mascota',
     subgrupo: 'Veterinario',
@@ -310,6 +368,7 @@ export const dataCategoriasGastos = [
 
   // Tecnologia
   {
+    id: 31,
     categoria: 'Tecnologia',
     grupo: 'Telefonia Móvil',
     subgrupo: 'Accesorios',
@@ -318,6 +377,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 32,
     categoria: 'Tecnologia',
     grupo: 'Telefonia Móvil',
     subgrupo: 'Planes',
@@ -326,6 +386,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 33,
     categoria: 'Tecnologia',
     grupo: 'Telefonia Móvil',
     subgrupo: 'Recargas',
@@ -335,6 +396,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 34,
     categoria: 'Tecnologia',
     grupo: 'Web',
     subgrupo: 'Alojamiento',
@@ -343,6 +405,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 35,
     categoria: 'Tecnologia',
     grupo: 'Web',
     subgrupo: 'Desarrollo',
@@ -351,6 +414,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 36,
     categoria: 'Tecnologia',
     grupo: 'Web',
     subgrupo: 'Dominios',
@@ -361,6 +425,7 @@ export const dataCategoriasGastos = [
 
   // Transporte
   {
+    id: 37,
     categoria: 'Transporte',
     grupo: 'Automovil',
     subgrupo: 'Estacionamiento',
@@ -369,6 +434,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 38,
     categoria: 'Transporte',
     grupo: 'Automovil',
     subgrupo: 'Gasolina',
@@ -377,6 +443,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 39,
     categoria: 'Transporte',
     grupo: 'Bicicleta',
     subgrupo: '',
@@ -384,8 +451,17 @@ export const dataCategoriasGastos = [
     tipo: '',
     helperKey: '',
   },
-  { categoria: 'Transporte', grupo: 'Taxi', subgrupo: '', emoji: '🚕', tipo: '', helperKey: '' },
   {
+    id: 40,
+    categoria: 'Transporte',
+    grupo: 'Taxi',
+    subgrupo: '',
+    emoji: '🚕',
+    tipo: '',
+    helperKey: '',
+  },
+  {
+    id: 41,
     categoria: 'Transporte',
     grupo: 'Transporte Público',
     subgrupo: '',
@@ -396,6 +472,7 @@ export const dataCategoriasGastos = [
 
   // Vida y Entretenimiento
   {
+    id: 42,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Cuidado Personal',
     subgrupo: 'Masajes',
@@ -404,6 +481,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 43,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Cuidado Personal',
     subgrupo: 'Peluqueria',
@@ -413,6 +491,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 44,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Educación y Desarrollo',
     subgrupo: 'Cursos y Clases',
@@ -421,6 +500,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 45,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Educación y Desarrollo',
     subgrupo: 'Libros',
@@ -430,6 +510,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 46,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Eventos Fuera de Casa',
     subgrupo: 'Cine',
@@ -438,6 +519,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 47,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Eventos Fuera de Casa',
     subgrupo: 'Conciertos / Festivales',
@@ -446,6 +528,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 48,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Eventos Fuera de Casa',
     subgrupo: 'Eventos Deportivos',
@@ -454,6 +537,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 49,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Eventos Fuera de Casa',
     subgrupo: 'Teatro',
@@ -463,6 +547,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 50,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Eventos Sociales',
     subgrupo: '',
@@ -472,6 +557,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 51,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Fitness',
     subgrupo: 'Equipo Fitness',
@@ -480,6 +566,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 52,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Fitness',
     subgrupo: 'Equipo de Futbol',
@@ -488,6 +575,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 53,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Fitness',
     subgrupo: 'Gym',
@@ -496,6 +584,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 54,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Fitness',
     subgrupo: 'Yoga',
@@ -505,6 +594,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 55,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Juegos de Azar | Apuestas',
     subgrupo: '',
@@ -513,6 +603,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 56,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Libros | Audio',
     subgrupo: '',
@@ -522,6 +613,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 57,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Malos Vicios',
     subgrupo: 'Alcohol',
@@ -530,6 +622,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 58,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Malos Vicios',
     subgrupo: 'Cigarros',
@@ -538,6 +631,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 59,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Malos Vicios',
     subgrupo: 'Drogas',
@@ -547,6 +641,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 60,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Pasatiempos',
     subgrupo: 'Clases de Baile',
@@ -555,6 +650,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 61,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Pasatiempos',
     subgrupo: 'Música',
@@ -564,6 +660,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 62,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Salud',
     subgrupo: 'Consultas Médicas',
@@ -572,6 +669,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 63,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Salud',
     subgrupo: 'Dentista',
@@ -580,6 +678,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 64,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Salud',
     subgrupo: 'Farmacia | Medicinas',
@@ -588,6 +687,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 65,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Salud',
     subgrupo: 'Fisioterapia | Acupuntura',
@@ -596,6 +696,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 66,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Salud',
     subgrupo: 'Psicologo',
@@ -605,6 +706,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 67,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Streaming',
     subgrupo: 'Amazon Prime',
@@ -613,6 +715,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 68,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Streaming',
     subgrupo: 'Disney+',
@@ -621,6 +724,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 69,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Streaming',
     subgrupo: 'HBO Max',
@@ -629,6 +733,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 70,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Streaming',
     subgrupo: 'Netflix',
@@ -637,6 +742,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 71,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Streaming',
     subgrupo: 'Spotify',
@@ -646,6 +752,7 @@ export const dataCategoriasGastos = [
   },
 
   {
+    id: 72,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Viajes',
     subgrupo: 'Actividades',
@@ -654,6 +761,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 73,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Viajes',
     subgrupo: 'Avión',
@@ -662,6 +770,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 74,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Viajes',
     subgrupo: 'Comida',
@@ -670,6 +779,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 75,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Viajes',
     subgrupo: 'Hospedaje',
@@ -678,6 +788,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 76,
     categoria: 'Vida y Entretenimiento',
     grupo: 'Viajes',
     subgrupo: 'Transporte',
@@ -688,6 +799,7 @@ export const dataCategoriasGastos = [
 
   // Vivienda
   {
+    id: 77,
     categoria: 'Vivienda',
     grupo: 'Vivienda',
     subgrupo: 'Internet y Teléfono',
@@ -696,6 +808,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 78,
     categoria: 'Vivienda',
     grupo: 'Vivienda',
     subgrupo: 'Limpieza del Hogar',
@@ -704,6 +817,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 79,
     categoria: 'Vivienda',
     grupo: 'Vivienda',
     subgrupo: 'Mantenimiento Copilco',
@@ -712,6 +826,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 80,
     categoria: 'Vivienda',
     grupo: 'Vivienda',
     subgrupo: 'Reparaciones',
@@ -720,6 +835,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 81,
     categoria: 'Vivienda',
     grupo: 'Vivienda',
     subgrupo: 'Servicios - Agua',
@@ -728,6 +844,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 82,
     categoria: 'Vivienda',
     grupo: 'Vivienda',
     subgrupo: 'Servicios - Gas',
@@ -736,6 +853,7 @@ export const dataCategoriasGastos = [
     helperKey: '',
   },
   {
+    id: 83,
     categoria: 'Vivienda',
     grupo: 'Vivienda',
     subgrupo: 'Servicios - Luz',
