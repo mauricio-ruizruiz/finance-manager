@@ -1,5 +1,5 @@
 import { Accordion, Table } from '@mantine/core';
-import { dataCategoriasGastos } from './dataCategoriasGastos';
+import dataCategorias from './data';
 
 const TableCategorias = () => {
   return (
@@ -17,40 +17,70 @@ const TableCategorias = () => {
       </Table.Thead> */}
 
       <Table.Tbody>
-        {Array.from(
-          new Map(dataCategoriasGastos.map((item) => [item.categoria, item])).values()
-        ).map((item) => (
-          <Table.Tr key={item.categoria}>
+        {dataCategorias.map((categoria) => (
+          <Table.Tr key={categoria.id}>
             <Table.Td colSpan={7}>
               <Accordion
                 variant="unstyled"
                 radius="xs"
                 chevronPosition="left"
                 chevronIconSize={25}
-                defaultValue="Apples"
+                // defaultValue={categoria.categoria}
               >
-                <Accordion.Item key={item.id} value={item.categoria}>
-                  <Accordion.Control icon={item.categoriaEmoji}>{item.categoria}</Accordion.Control>
+                <Accordion.Item key={categoria.id} value={categoria.categoria}>
+                  <Accordion.Control icon={categoria.categoriaEmoji}>
+                    {categoria.categoria}
+                  </Accordion.Control>
                   <Accordion.Panel>
                     <Table striped highlightOnHover withColumnBorders>
                       <Table.Tbody>
-                        {dataCategoriasGastos
-                          .filter((g) => g.categoria === item.categoria)
-                          .reduce(
-                            (acc, curr) => {
-                              if (!acc.some((row) => row.grupo === curr.grupo)) {
-                                acc.push({ grupo: curr.grupo, grupoEmoji: curr.grupoEmoji });
-                              }
-                              return acc;
-                            },
-                            [] as { grupo: string; grupoEmoji?: string }[]
-                          )
-                          .map((grupoItem) => (
-                            <Table.Tr key={grupoItem.grupo}>
-                              <Table.Td>{grupoItem.grupoEmoji}</Table.Td>
-                              <Table.Td>{grupoItem.grupo}</Table.Td>
-                            </Table.Tr>
-                          ))}
+                        {categoria.grupos.map((grupo) => {
+                          const subgruposArr =
+                            categoria.subgrupos && (categoria.subgrupos as any)[grupo.nombre];
+                          if (Array.isArray(subgruposArr) && subgruposArr.length > 0) {
+                            return (
+                              <Table.Tr key={grupo.id}>
+                                <Table.Td colSpan={2}>
+                                  <Accordion
+                                    variant="unstyled"
+                                    radius="xs"
+                                    chevronPosition="left"
+                                    chevronIconSize={20}
+                                  >
+                                    <Accordion.Item key={grupo.id} value={grupo.nombre}>
+                                      <Accordion.Control icon={grupo.emoji}>
+                                        {grupo.nombre}
+                                      </Accordion.Control>
+                                      <Accordion.Panel>
+                                        <Table striped highlightOnHover withColumnBorders>
+                                          <Table.Tbody>
+                                            {subgruposArr.map((subgrupo: any) => (
+                                              <Table.Tr key={subgrupo.id}>
+                                                <Table.Td style={{ paddingLeft: 32 }}>
+                                                  {subgrupo.nombre}
+                                                </Table.Td>
+                                                <Table.Td style={{ paddingLeft: 32 }}>
+                                                  {subgrupo.subgrupoEmoji}
+                                                </Table.Td>
+                                              </Table.Tr>
+                                            ))}
+                                          </Table.Tbody>
+                                        </Table>
+                                      </Accordion.Panel>
+                                    </Accordion.Item>
+                                  </Accordion>
+                                </Table.Td>
+                              </Table.Tr>
+                            );
+                          } else {
+                            return (
+                              <Table.Tr key={grupo.id}>
+                                <Table.Td>{grupo.nombre}</Table.Td>
+                                <Table.Td>{grupo.emoji}</Table.Td>
+                              </Table.Tr>
+                            );
+                          }
+                        })}
                       </Table.Tbody>
                     </Table>
                   </Accordion.Panel>
