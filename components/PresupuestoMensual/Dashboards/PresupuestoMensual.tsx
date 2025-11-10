@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { Table, Title } from '@mantine/core';
-import CategoriasTable from '@/components/Categorias/CategoriasTable';
-import TableCategorias from '@/components/Categorias/TableCategorias';
+import TableCategorias from '@/components/Categorias/Gastos/TablaCategoriasGastos';
 import CashFlow from './CashFlow/CashFlow';
 import DesgloseIngresos from './DesgloseIngresos/DesgloseIngresos';
 import Metodo from './Metodo/Metodo';
@@ -12,8 +10,6 @@ import { TotalStats } from './Total/TotalStats';
 const PresupuestoMensual = () => {
   return (
     <>
-      <TableCategorias />
-      {/* <CategoriasTable /> */}
       <Title order={1} my="lg">
         enero
       </Title>

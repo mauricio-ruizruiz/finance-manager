@@ -1,0 +1,32 @@
+.root {
+  border-radius: var(--mantine-radius-xl);
+  border: 5px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
+  /* width: 500px; */
+  max-width: 600px;
+  margin: auto;
+  /* background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6)); */
+}
+
+.item {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
+  /* border: 1px solid transparent; */
+  position: relative;
+  z-index: 0;
+  /* transition: transform 150ms ease; */
+
+  &[data-active] {
+    /* transform: scale(1.03); */
+    z-index: 1;
+    /* background-color: var(--mantine-color-body); */
+    /* border-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4)); */
+    box-shadow: var(--mantine-shadow-md);
+    /* border: 5px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4)); */
+    /* border-radius: var(--mantine-radius-md); */
+  }
+}
+
+.chevron {
+  &[data-rotate] {
+    /* transform: rotate(-90deg); */
+  }
+}
