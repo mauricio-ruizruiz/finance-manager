@@ -27,7 +27,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
       {
         id: getUniqueId(),
         nombre: 'Despensa',
-        emoji: '🛒',
+        emoji: '🧺',
         descripcion:
           'Gastos relacionados con la compra de productos de despensa, como mercado y supermercado.',
       },
@@ -58,7 +58,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
         {
           id: getUniqueId(),
           nombre: 'A Domicilio',
-          emoji: '🚚',
+          emoji: '🛵',
           descripcion: 'Gastos relacionados con comida a domicilio, incluyendo pedidos y entregas.',
         },
         {
@@ -87,13 +87,13 @@ const dataCategoriasGastos: CategoriaGasto[] = [
         {
           id: getUniqueId(),
           nombre: 'Mercado',
-          emoji: '🧺',
+          emoji: '🥕',
           descripcion: 'Gastos relacionados con mercados, incluyendo compras de productos frescos.',
         },
         {
           id: getUniqueId(),
           nombre: 'Supermercado',
-          emoji: '🏬',
+          emoji: '🛒',
           descripcion:
             'Gastos relacionados con supermercados, incluyendo compras de productos en grandes cantidades.',
         },
@@ -115,7 +115,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
       {
         id: getUniqueId(),
         nombre: 'Artículos para el Hogar',
-        emoji: '🏠',
+        emoji: '🧺',
         descripcion:
           'Objetos para uso doméstico: utensilios de cocina, decoración, organización y textiles para el hogar.',
       },
@@ -187,18 +187,18 @@ const dataCategoriasGastos: CategoriaGasto[] = [
   {
     id: getUniqueId(),
     categoria: 'Gastos Financieros',
-    emoji: '🛒',
+    emoji: '💳',
     grupos: [
       {
         id: getUniqueId(),
         nombre: 'Servicios',
-        emoji: '💡',
+        emoji: '🏦',
         descripcion: 'Cuotas y cargos por servicios financieros, mantenimiento de cuenta u otros.',
       },
       {
         id: getUniqueId(),
         nombre: 'Intereses',
-        emoji: '💰',
+        emoji: '📈',
         descripcion: 'Intereses generados por créditos, préstamos o financiamientos.',
       },
       {
@@ -226,7 +226,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
       {
         id: getUniqueId(),
         nombre: 'Croquetas',
-        emoji: '🍖',
+        emoji: '🥫',
         descripcion: 'Alimento seco o balanceado para el consumo diario de la mascota.',
       },
       {
@@ -253,7 +253,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
       {
         id: getUniqueId(),
         nombre: 'Veterinario',
-        emoji: '👨‍⚕️',
+        emoji: '🩺',
         descripcion: 'Consultas, revisiones, intervenciones y servicios médicos para la mascota.',
       },
     ],
@@ -324,7 +324,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
         {
           id: getUniqueId(),
           nombre: 'Alojamiento',
-          emoji: '🏠',
+          emoji: '🗄️',
           descripcion: 'Hosting y servidores para sitios o aplicaciones web.',
         },
         {
@@ -350,7 +350,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
         {
           id: getUniqueId(),
           nombre: 'Planes',
-          emoji: '📅',
+          emoji: '📶',
           descripcion: 'Servicios contratados de datos, llamadas y mensajes.',
         },
         {
@@ -364,7 +364,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
         {
           id: getUniqueId(),
           nombre: 'Computadora',
-          emoji: '🖥️',
+          emoji: '💻',
           descripcion:
             'Compra o actualización de equipos principales: desktop, laptop, workstation.',
         },
@@ -551,7 +551,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
         {
           id: getUniqueId(),
           nombre: 'Loteria',
-          emoji: '🎲',
+          emoji: '🎟️',
           descripcion: 'Compra de boletos o participaciones en sorteos oficiales.',
         },
         {
@@ -807,7 +807,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
         {
           id: getUniqueId(),
           nombre: 'Consultas Médicas',
-          emoji: '👨‍⚕️',
+          emoji: '🩺',
           descripcion: 'Atención profesional general y especializada.',
         },
         {
@@ -895,7 +895,7 @@ const dataCategoriasGastos: CategoriaGasto[] = [
         {
           id: getUniqueId(),
           nombre: 'Gas',
-          emoji: '🛢️',
+          emoji: '🔥',
           descripcion: 'Pago por suministro de gas doméstico (natural o LP).',
         },
         {

@@ -1,0 +1,44 @@
+/* Root element */
+.root {
+}
+
+/* Label element */
+.label {
+}
+
+/* Required asterisk element, rendered inside label */
+.required {
+}
+
+/* Description element */
+.description {
+}
+
+/* Error element */
+.error {
+}
+
+/* Root element of the Input */
+.wrapper {
+}
+
+/* Input element */
+.input {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
+  border: 1px solid light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-5));
+  height: 38px;
+  padding: 0 12px;
+  border-radius: var(--mantine-radius-sm);
+  font-size: var(--mantine-font-size-md);
+  width: 100%;
+
+  &:focus {
+    border-color: var(--mantine-color-blue-6);
+    box-shadow: 0 0 0 2px var(--mantine-color-blue-2);
+    outline: none;
+  }
+}
+
+/* Left and right sections */
+.section {
+}
