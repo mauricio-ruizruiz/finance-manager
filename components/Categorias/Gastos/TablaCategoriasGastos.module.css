@@ -1,6 +1,6 @@
 .root {
-  border-radius: var(--mantine-radius-xl);
-  border: 5px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
+  /* border-radius: var(--mantine-radius-xl); */
+  /* border: 5px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4)); */
   /* width: 500px; */
   max-width: 600px;
   margin: auto;
@@ -8,7 +8,7 @@
 }
 
 .item {
-  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
+  /* background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8)); */
   /* border: 1px solid transparent; */
   position: relative;
   z-index: 0;

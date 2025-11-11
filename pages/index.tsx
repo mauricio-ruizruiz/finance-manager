@@ -10,7 +10,12 @@ export default function HomePage() {
     <>
       {/* <Welcome /> */}
       {/* <ColorSchemeToggle /> */}
+
       <Center>
+        <PresupuestoMensual />
+      </Center>
+
+      <Center my={50}>
         <CategoriasGastos />
       </Center>
     </>

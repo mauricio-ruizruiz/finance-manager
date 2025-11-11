@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { Accordion, Group, Stack, Table, Text } from '@mantine/core';
+import { SelectTipoGasto } from './SelectTipoGastos';
 import { SubgruposTable } from './SubgruposTable';
 import { emoji, layout } from './tokens';
 import type { GrupoGasto, SubgrupoGasto } from './types';
@@ -24,6 +25,10 @@ function GrupoItemBase({ grupo, subgrupos }: { grupo: GrupoGasto; subgrupos?: Su
                   {grupo.descripcion}
                 </Text>
               )}
+            </div>
+            <div style={{ flex: 1 }}></div>
+            <div style={{ width: '100%', maxWidth: '150px' }}>
+              <SelectTipoGasto />
             </div>
           </Group>
         </Table.Td>

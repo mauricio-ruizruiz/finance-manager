@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { Group, Switch, Table, Text } from '@mantine/core';
+import { SelectTipoGasto } from './SelectTipoGastos';
 import SwitchTipodeGasto from './SwitchTipodeGasto';
 import { emoji, layout } from './tokens';
 import type { SubgrupoGasto } from './types';
@@ -32,9 +33,9 @@ function SubgrupoRowBase({ subgrupo }: { subgrupo: SubgrupoGasto }) {
               </Text>
             )}
           </div>
-          {/* <Switch style={{ justifySelf: 'flex-end' }} size="lg" onLabel="ON" offLabel="OFF" /> */}
-          <div style={{ width: '100%', maxWidth: '120px' }}>
-            <SwitchTipodeGasto />
+          <div style={{ flex: 1 }}></div>
+          <div style={{ width: '100%', maxWidth: '150px' }}>
+            <SelectTipoGasto />
           </div>
         </div>
         {/* </Group> */}

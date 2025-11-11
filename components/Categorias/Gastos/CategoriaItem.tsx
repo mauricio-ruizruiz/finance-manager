@@ -16,8 +16,15 @@ function CategoriaItemBase({ categoria }: { categoria: CategoriaGasto }) {
       : undefined;
   return (
     <Table.Tr>
-      <Table.Td colSpan={7}>
-        <Accordion variant="separated" radius="xl" classNames={classes} chevronIconSize={30}>
+      <Table.Td
+      // colSpan={7}
+      >
+        <Accordion
+          // variant="separated"
+          radius="xl"
+          classNames={classes}
+          chevronIconSize={30}
+        >
           <Accordion.Item value={categoria.categoria}>
             <Accordion.Control>
               <Group gap="sm" wrap="nowrap">
