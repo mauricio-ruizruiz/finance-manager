@@ -11,11 +11,11 @@ import { TotalStats } from './Total/TotalStats';
 const PresupuestoMensual = () => {
   return (
     <>
-      <Container size="sm" my={40}>
-        <Title order={1} my="lg" style={{ margin: 'auto' }}>
+      <Container size="md" my={40}>
+        {/* <Title order={1} my="lg" style={{ margin: 'auto' }}>
           enero
         </Title>
-        <Title order={3}>- Presupuesto Mensual -</Title>
+        <Title order={3}>- Presupuesto Mensual -</Title> */}
         <DesgloseDeIngresos />
         {/* <Periodo /> */}
         {/* <TotalStats /> */}
