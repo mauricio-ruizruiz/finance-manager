@@ -10,12 +10,12 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <MantineProvider theme={theme}>
       <Head>
-        <title>CF</title>
+        <title>FinanzApp v1</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
       </Head>
       <Component {...pageProps} />
     </MantineProvider>

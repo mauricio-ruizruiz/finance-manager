@@ -134,7 +134,7 @@ function DesgloseDeIngresos() {
                       }}
                     >
                       <Accordion.Item value={categoria.nombre}>
-                        {/* <Accordion.Control></Accordion.Control> */}
+                        <Accordion.Control style={{ display: 'none' }}></Accordion.Control>
                         <Accordion.Panel>
                           <Table verticalSpacing={8} withRowBorders={false}>
                             <Table.Tbody>
