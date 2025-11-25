@@ -10,8 +10,8 @@ const PresupuestoMensual = () => {
       <Container size="md">
         <Portada mes="enero" />
         <ReporteGastos />
-        <ReporteIngresos />
-        <DesgloseDeIngresos />
+        {/* <ReporteIngresos /> */}
+        {/* <DesgloseDeIngresos /> */}
       </Container>
     </>
   );
