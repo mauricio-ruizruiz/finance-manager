@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { Accordion, Table, Title } from '@mantine/core';
-import BotonControlAcordeon from './BotonControlAcordeon';
-import CantidadEstimada from './CantidadEstimada';
-import CantidadFinal from './CantidadFinal';
-import CeldaCategoria from './CeldaCategoria';
-import FechaEfectiva from './FechaEfectiva';
-import FechaPrevista from './FechaPrevista';
-import Nota from './Nota';
+import { Table, Title } from '@mantine/core';
+import AcordeonSubcategorias from './AcordeonSubcategorias';
+import FilaCategoria from './FilaCategoria';
+import FilaCategoriaExpandible from './FilaCategoriaExpandible';
+import FilaTotalTabla from './FilaTotalTabla';
 
 interface TablaPresupuestoProps {
   encabezado: string;
@@ -20,166 +17,6 @@ const TablaPresupuesto: React.FC<TablaPresupuestoProps> = ({
   categorias,
 }) => {
   const [value, setValue] = useState<string[]>([]);
-  const filaCategoria = (categoria: any) => (
-    <Table.Tr key={categoria.nombre}>
-      <Table.Td></Table.Td>
-      <Table.Td
-      //  w={'100%'}
-      >
-        <CeldaCategoria icon={categoria.icon} nombre={categoria.nombre} />
-      </Table.Td>
-      <Table.Td>
-        <FechaPrevista />
-      </Table.Td>
-      <Table.Td>
-        <FechaEfectiva />
-      </Table.Td>
-      <Table.Td>
-        <Nota />
-      </Table.Td>
-      <Table.Td>
-        <CantidadEstimada />
-      </Table.Td>
-      <Table.Td>
-        <CantidadFinal />
-      </Table.Td>
-    </Table.Tr>
-  );
-
-  const filaSubCategoria = (subcategoria: any) => (
-    <Table.Tr key={subcategoria.nombre}>
-      <Table.Td
-        style={{
-          // display: 'inline-table',
-          width: '80px',
-          // width: '100%',
-        }}
-      ></Table.Td>
-      <Table.Td>
-        <CeldaCategoria icon={subcategoria.icon} nombre={subcategoria.nombre} />
-      </Table.Td>
-      <Table.Td>
-        <FechaPrevista />
-      </Table.Td>
-      <Table.Td>
-        <FechaEfectiva />
-      </Table.Td>
-      <Table.Td>
-        <Nota />
-      </Table.Td>
-      <Table.Td>
-        <CantidadEstimada />
-      </Table.Td>
-      <Table.Td>
-        <CantidadFinal />
-      </Table.Td>
-    </Table.Tr>
-  );
-
-  const filasCategoriaControlExpandible = ({ categoria, value, setValue }: any) => (
-    <Table.Tr key={categoria.nombre}>
-      <Table.Td>
-        <BotonControlAcordeon
-          onClick={() =>
-            setValue(
-              value.includes(categoria.nombre)
-                ? value.filter((v) => v !== categoria.nombre)
-                : [...value, categoria.nombre]
-            )
-          }
-        />
-      </Table.Td>
-      <Table.Td
-      //  w={'100%'}
-      >
-        <CeldaCategoria icon={categoria.icon} nombre={categoria.nombre} />
-      </Table.Td>
-      <Table.Td />
-      <Table.Td />
-      <Table.Td />
-      <Table.Td>
-        <CantidadEstimada />
-      </Table.Td>
-      <Table.Td>
-        <CantidadFinal />
-      </Table.Td>
-    </Table.Tr>
-  );
-
-  const subCategoriaAcordeon = (categoria: any) =>
-    categoria.subcategorias.map((subcat: any) => (
-      <Table.Tr key={subcat.nombre}>
-        <Table.Td colSpan={7}>
-          <Accordion
-            unstyled
-            multiple
-            value={value}
-            onChange={setValue}
-            styles={{
-              content: {
-                paddingLeft: 0,
-                paddingRight: 0,
-              },
-              item: {
-                borderBottom: 'none',
-                // backgroundColor: 'var(--mantine-color-pink-7)',
-              },
-            }}
-          >
-            <Accordion.Item value={subcat.nombre}>
-              <Accordion.Panel>
-                <Table>
-                  <Table.Tbody>{filaSubCategoria(subcat)}</Table.Tbody>
-                </Table>
-              </Accordion.Panel>
-            </Accordion.Item>
-          </Accordion>
-        </Table.Td>
-      </Table.Tr>
-    ));
-
-  // const subCategoriaAcordeon = ({ categoria, subcategoria, value, setValue }: any) => (
-  //   <>
-  //     <Table.Tr>
-  //       <Table.Td colSpan={7}>
-  //         <Accordion
-  //           unstyled
-  //           multiple
-  //           value={value}
-  //           onChange={setValue}
-  //           styles={{
-  //             content: {
-  //               paddingLeft: 0,
-  //               paddingRight: 0,
-  //             },
-  //             item: {
-  //               borderBottom: 'none',
-  //               // backgroundColor: 'var(--mantine-color-pink-7)',
-  //             },
-  //           }}
-  //         >
-  //           <Accordion.Item value={categoria.nombre}>
-  //             <Accordion.Panel>
-  //               <Table>
-  //                 <Table.Tbody>{filaSubCategoria(subcategoria)}</Table.Tbody>
-  //               </Table>
-  //             </Accordion.Panel>
-  //           </Accordion.Item>
-  //         </Accordion>
-  //       </Table.Td>
-  //     </Table.Tr>
-  //   </>
-  // );
-  const filas = categorias.map((categoria) =>
-    categoria.subcategorias && categoria.subcategorias.length > 0 ? (
-      <>
-        {filasCategoriaControlExpandible({ categoria, value, setValue })}
-        {subCategoriaAcordeon(categoria)}
-      </>
-    ) : (
-      filaCategoria(categoria)
-    )
-  );
 
   return (
     <>
@@ -210,7 +47,31 @@ const TablaPresupuesto: React.FC<TablaPresupuestoProps> = ({
             ))}
           </Table.Tr>
         </Table.Thead>
-        <Table.Tbody>{filas}</Table.Tbody>
+        <Table.Tbody>
+          {categorias.map((categoria) =>
+            categoria.subcategorias && categoria.subcategorias.length > 0 ? (
+              <React.Fragment key={categoria.nombre}>
+                <FilaCategoriaExpandible
+                  categoria={categoria}
+                  isExpanded={value.includes(categoria.nombre)}
+                  onToggle={() =>
+                    setValue(
+                      value.includes(categoria.nombre)
+                        ? value.filter((v: string) => v !== categoria.nombre)
+                        : [...value, categoria.nombre]
+                    )
+                  }
+                />
+                <AcordeonSubcategorias categoria={categoria} value={value} onChange={setValue} />
+              </React.Fragment>
+            ) : (
+              <React.Fragment key={categoria.nombre}>
+                <FilaCategoria categoria={categoria} />
+              </React.Fragment>
+            )
+          )}
+        </Table.Tbody>
+        <FilaTotalTabla colspan={4} />
       </Table>
     </>
   );
