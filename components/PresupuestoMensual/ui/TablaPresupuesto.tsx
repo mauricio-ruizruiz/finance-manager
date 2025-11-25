@@ -53,7 +53,7 @@ const TablaPresupuesto: React.FC<TablaPresupuestoProps> = ({
               <React.Fragment key={categoria.nombre}>
                 <FilaCategoriaExpandible
                   categoria={categoria}
-                  isExpanded={value.includes(categoria.nombre)}
+                  // isExpanded={value.includes(categoria.nombre)}
                   onToggle={() =>
                     setValue(
                       value.includes(categoria.nombre)

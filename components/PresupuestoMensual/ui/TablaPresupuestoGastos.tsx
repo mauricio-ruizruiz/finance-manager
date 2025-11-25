@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Table, Title } from '@mantine/core';
+import { Accordion, Table, Title } from '@mantine/core';
+import BotonControlAcordeon from './BotonControlAcordeon';
 import CantidadEstimada from './CantidadEstimada';
 import CantidadFinal from './CantidadFinal';
 import CeldaCategoria from './CeldaCategoria';
@@ -12,6 +13,7 @@ interface TablaPresupuestoProps {
 }
 const TablaPresupuestoGastos = ({ encabezado, columnas, categorias }: TablaPresupuestoProps) => {
   const [value, setValue] = useState<string[]>([]);
+  const [grupoValue, setGrupoValue] = useState<string[]>([]);
   return (
     <>
       <Table captionSide="top">
@@ -41,60 +43,150 @@ const TablaPresupuestoGastos = ({ encabezado, columnas, categorias }: TablaPresu
           {categorias.map((categoria) => (
             <>
               <Table.Tr key={categoria.id}>
-                <Table.Td></Table.Td>
-                <Table.Td>
+                <Table.Td style={{ width: 70 }}>
+                  <BotonControlAcordeon
+                    onClick={() =>
+                      setValue(
+                        value.includes(categoria.categoria)
+                          ? value.filter((v: string) => v !== categoria.categoria)
+                          : [...value, categoria.categoria]
+                      )
+                    }
+                  />
+                </Table.Td>
+                <Table.Td colSpan={4}>
                   <CeldaCategoria icon={categoria.categoriaicon} nombre={categoria.categoria} />
                 </Table.Td>
-                <Table.Td></Table.Td>
-                <Table.Td></Table.Td>
-                <Table.Td></Table.Td>
-                <Table.Td>
+
+                <Table.Td style={{ width: 125 }}>
                   <CantidadEstimada />
                 </Table.Td>
-                <Table.Td>
+                <Table.Td style={{ width: 125 }}>
                   <CantidadFinal />
                 </Table.Td>
               </Table.Tr>
-              {
-              categoria.grupos.tipo === 'Gasto Fijo' ? (): null}
-               
-          //     categoria.grupos.map((grupo: any) => (
-          //       <React.Fragment key={grupo.id}>
-          //         <Table.Tr>
-          //           <Table.Td></Table.Td>
-          //           <Table.Td></Table.Td>
-          //           <Table.Td>{grupo.grupo}</Table.Td>
-          //           <Table.Td></Table.Td>
-          //           <Table.Td></Table.Td>
-          //           <Table.Td></Table.Td>
-          //           <Table.Td></Table.Td>
-          //         </Table.Tr>
-          //         {grupo.subgrupos && grupo.subgrupos.length > 0
-          //           ? grupo.subgrupos.map((subgrupo: any) =>
-          //               subgrupo.tipo === 'Gasto Fijo' ? (
-          //                 <Table.Tr>
-          //                   <Table.Td colSpan={7}>
-          //                     <Table>
-          //                       <Table.Tbody>
-          //                         <Table.Tr key={subgrupo.id}>
-          //                           <Table.Td></Table.Td>
-          //                           <Table.Td></Table.Td>
-          //                           <Table.Td></Table.Td>
-          //                           <Table.Td>{subgrupo.subgrupo}</Table.Td>
-          //                           <Table.Td></Table.Td>
-          //                           <Table.Td>{/* <CantidadEstimada /> */}</Table.Td>
-          //                           <Table.Td>{/* <CantidadFinal /> */}</Table.Td>
-          //                         </Table.Tr>
-          //                       </Table.Tbody>
-          //                     </Table>
-          //                   </Table.Td>
-          //                 </Table.Tr>
-          //               ) : null
-          //             )
-          //           : null}
-          //       </React.Fragment>
-          //     ))}
-
+              {categoria.grupos.map((grupo: any) =>
+                (grupo.tipo === 'Gasto Fijo' &&
+                  (!grupo.subgrupos || grupo.subgrupos.length === 0)) ||
+                (grupo.tipo === '' &&
+                  grupo.subgrupos &&
+                  grupo.subgrupos.some((subgrupo: any) => subgrupo.tipo === 'Gasto Fijo')) ? (
+                  <React.Fragment key={grupo.id}>
+                    <Table.Tr
+                      style={{
+                        backgroundColor: 'var(--mantine-color-dark-9)',
+                        height: value.includes(categoria.categoria) ? 'auto' : 0,
+                      }}
+                    >
+                      <Table.Td colSpan={7} px={0} py={0}>
+                        <Accordion
+                          unstyled
+                          multiple
+                          value={value}
+                          onChange={setValue}
+                          styles={{
+                            content: {
+                              // paddingLeft: 0,
+                              // paddingRight: 0,
+                            },
+                            item: {
+                              borderBottom: 'none',
+                            },
+                          }}
+                        >
+                          <Accordion.Item value={categoria.categoria}>
+                            <Accordion.Panel>
+                              <Table>
+                                <Table.Tbody>
+                                  <Table.Tr>
+                                    <Table.Td style={{ width: 80 }}>
+                                      {grupo.subgrupos && grupo.subgrupos.length > 0 ? (
+                                        <BotonControlAcordeon
+                                          onClick={() =>
+                                            setGrupoValue(
+                                              grupoValue.includes(grupo.grupo)
+                                                ? grupoValue.filter(
+                                                    (v: string) => v !== grupo.grupo
+                                                  )
+                                                : [...grupoValue, grupo.grupo]
+                                            )
+                                          }
+                                        />
+                                      ) : null}
+                                    </Table.Td>
+                                    <Table.Td>
+                                      <CeldaCategoria icon={grupo.grupoicon} nombre={grupo.grupo} />
+                                    </Table.Td>
+                                    <Table.Td style={{ width: 125 }}>
+                                      <CantidadEstimada />
+                                    </Table.Td>
+                                    <Table.Td style={{ width: 125 }}>
+                                      <CantidadFinal />
+                                    </Table.Td>
+                                  </Table.Tr>
+                                </Table.Tbody>
+                              </Table>
+                            </Accordion.Panel>
+                          </Accordion.Item>
+                        </Accordion>
+                      </Table.Td>
+                    </Table.Tr>
+                    {grupo.subgrupos && grupo.subgrupos.length > 0
+                      ? grupo.subgrupos.map((subgrupo: any) =>
+                          subgrupo.tipo === 'Gasto Fijo' ? (
+                            <Table.Tr
+                              style={{
+                                backgroundColor: 'var(--mantine-color-dark-8)',
+                                height: value.includes(categoria.categoria) ? 'auto' : 0,
+                              }}
+                            >
+                              <Table.Td colSpan={7} px={0} py={0}>
+                                <Accordion
+                                  unstyled
+                                  multiple
+                                  value={grupoValue}
+                                  onChange={setGrupoValue}
+                                  styles={{
+                                    content: {
+                                      // paddingLeft: 0,
+                                      // paddingRight: 0,
+                                    },
+                                    item: {
+                                      borderBottom: 'none',
+                                    },
+                                  }}
+                                >
+                                  <Accordion.Item value={grupo.grupo}>
+                                    <Accordion.Panel>
+                                      <Table>
+                                        <Table.Tbody>
+                                          <Table.Tr>
+                                            <Table.Td pl={120}>
+                                              <CeldaCategoria
+                                                icon={subgrupo.subgrupoicon}
+                                                nombre={subgrupo.subgrupo}
+                                              />
+                                            </Table.Td>
+                                            <Table.Td style={{ width: 125 }}>
+                                              <CantidadEstimada />
+                                            </Table.Td>
+                                            <Table.Td style={{ width: 125 }}>
+                                              <CantidadFinal />
+                                            </Table.Td>
+                                          </Table.Tr>
+                                        </Table.Tbody>
+                                      </Table>
+                                    </Accordion.Panel>
+                                  </Accordion.Item>
+                                </Accordion>
+                              </Table.Td>
+                            </Table.Tr>
+                          ) : null
+                        )
+                      : null}
+                  </React.Fragment>
+                ) : null
+              )}
             </>
           ))}
         </Table.Tbody>
