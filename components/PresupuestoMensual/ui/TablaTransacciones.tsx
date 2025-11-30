@@ -1,10 +1,34 @@
 import React, { useState } from 'react';
-import { IconCrop169Filled, IconDots, IconNote, IconSquare } from '@tabler/icons-react';
+import {
+  IconCaretRight,
+  IconCaretRightFilled,
+  IconCrop169Filled,
+  IconDots,
+  IconNote,
+  IconSquare,
+} from '@tabler/icons-react';
 import { input } from '@testing-library/user-event/dist/types/event';
-import { Badge, Box, Card, NativeSelect, Pill, Table, Text, TextInput } from '@mantine/core';
+import { color } from 'storybook/internal/theming';
+import {
+  Badge,
+  Box,
+  Card,
+  Container,
+  NativeSelect,
+  Pill,
+  Table,
+  Text,
+  TextInput,
+} from '@mantine/core';
 import { DateInput } from '@mantine/dates';
 import CantidadFinal from './CantidadFinal';
 import FechaEfectiva from './FechaEfectiva';
+
+// Devuelve un color aleatorio entre tres opciones de Mantine
+function getRandomEtiquetaColor() {
+  const colors = ['blue', 'grape', 'teal', 'orange', 'cyan', 'lime', 'pink'];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
 
 const transacciones = [
   {
@@ -17,10 +41,10 @@ const transacciones = [
     subcategoriaicon: '🌮',
     subgrupo: 'A Domicilio',
     subgrupoicon: '🏠',
-    etiquetas: ['Financiado'],
-    metodoPago: 'Efectivo',
+    etiquetas: [],
+    metodoPago: 'TD',
     nota: 'Tacos 🌮',
-    cantidad: 150,
+    cantidad: '150.00',
   },
   {
     fecha: new Date('2025-11-02'),
@@ -32,10 +56,10 @@ const transacciones = [
     subcategoriaicon: '⛽',
     subgrupo: 'Auto',
     subgrupoicon: '🚙',
-    etiquetas: ['Personal'],
-    metodoPago: 'Tarjeta',
+    etiquetas: ['Personal', 'Viaje', 'Urgente'],
+    metodoPago: 'TC',
     nota: 'Carga de gasolina',
-    cantidad: 600,
+    cantidad: '600.00',
   },
   {
     fecha: new Date('2025-11-03'),
@@ -47,10 +71,10 @@ const transacciones = [
     subcategoriaicon: '1️⃣',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Trabajo'],
-    metodoPago: 'Transferencia',
+    etiquetas: ['Trabajo', 'Sueldo'],
+    metodoPago: 'Web',
     nota: 'Pago de nómina',
-    cantidad: 12000,
+    cantidad: '12000.00',
   },
   {
     fecha: new Date('2025-11-04'),
@@ -62,10 +86,10 @@ const transacciones = [
     subcategoriaicon: '🏠',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Mensual'],
+    etiquetas: ['Mensual', 'Renta'],
     metodoPago: 'Transferencia',
     nota: 'Pago de renta',
-    cantidad: 7000,
+    cantidad: '7000.00',
   },
   {
     fecha: new Date('2025-11-05'),
@@ -77,10 +101,10 @@ const transacciones = [
     subcategoriaicon: '🎬',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Ocio'],
-    metodoPago: 'Efectivo',
+    etiquetas: ['Ocio', 'Diversión'],
+    metodoPago: 'Cupón',
     nota: 'Película en cine',
-    cantidad: 180,
+    cantidad: '180.00',
   },
   {
     fecha: new Date('2025-11-06'),
@@ -93,9 +117,9 @@ const transacciones = [
     subgrupo: '',
     subgrupoicon: '',
     etiquetas: ['Extra'],
-    metodoPago: 'Efectivo',
+    metodoPago: 'Movil',
     nota: 'Regalo de cumpleaños',
-    cantidad: 500,
+    cantidad: '500.00',
   },
   {
     fecha: new Date('2025-11-07'),
@@ -107,10 +131,10 @@ const transacciones = [
     subcategoriaicon: '💊',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Farmacia'],
-    metodoPago: 'Tarjeta',
+    etiquetas: ['Farmacia', 'Salud'],
+    metodoPago: 'TC',
     nota: 'Compra de medicinas',
-    cantidad: 350,
+    cantidad: '350.00',
   },
   {
     fecha: new Date('2025-11-08'),
@@ -122,10 +146,10 @@ const transacciones = [
     subcategoriaicon: '📖',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Estudio'],
+    etiquetas: ['Estudio', 'Libros'],
     metodoPago: 'Efectivo',
     nota: 'Compra de libros',
-    cantidad: 400,
+    cantidad: '400.00',
   },
   {
     fecha: new Date('2025-11-09'),
@@ -138,9 +162,9 @@ const transacciones = [
     subgrupo: 'Restaurante',
     subgrupoicon: '🍴',
     etiquetas: ['Ocasional'],
-    metodoPago: 'Tarjeta',
+    metodoPago: 'TC',
     nota: 'Cena en restaurante',
-    cantidad: 600,
+    cantidad: '600.00',
   },
   {
     fecha: new Date('2025-11-10'),
@@ -152,10 +176,10 @@ const transacciones = [
     subcategoriaicon: '',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Extra'],
-    metodoPago: 'Efectivo',
+    etiquetas: [],
+    metodoPago: 'TD',
     nota: 'Venta de artículo usado',
-    cantidad: 800,
+    cantidad: '800.00',
   },
   {
     fecha: new Date('2025-11-11'),
@@ -167,10 +191,10 @@ const transacciones = [
     subcategoriaicon: '🚕',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Urgente'],
-    metodoPago: 'Efectivo',
+    etiquetas: ['Urgente', 'Taxi'],
+    metodoPago: 'Cupón',
     nota: 'Taxi por emergencia',
-    cantidad: 120,
+    cantidad: '120.00',
   },
   {
     fecha: new Date('2025-11-12'),
@@ -182,10 +206,10 @@ const transacciones = [
     subcategoriaicon: '🕹️',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Ocio'],
-    metodoPago: 'Tarjeta',
+    etiquetas: ['Ocio', 'Videojuegos'],
+    metodoPago: 'Movil',
     nota: 'Compra de videojuego',
-    cantidad: 1200,
+    cantidad: '1200.00',
   },
   {
     fecha: new Date('2025-11-13'),
@@ -197,10 +221,10 @@ const transacciones = [
     subcategoriaicon: '💡',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Mensual'],
-    metodoPago: 'Transferencia',
+    etiquetas: ['Mensual', 'Servicios'],
+    metodoPago: 'Web',
     nota: 'Pago de luz',
-    cantidad: 350,
+    cantidad: '350.00',
   },
   {
     fecha: new Date('2025-11-14'),
@@ -212,10 +236,10 @@ const transacciones = [
     subcategoriaicon: '🌮',
     subgrupo: 'Supermercado',
     subgrupoicon: '🛒',
-    etiquetas: ['Mensual'],
-    metodoPago: 'Efectivo',
+    etiquetas: ['Mensual', 'Despensa'],
+    metodoPago: 'TD',
     nota: 'Despensa mensual',
-    cantidad: 1800,
+    cantidad: '1800.00',
   },
   {
     fecha: new Date('2025-11-15'),
@@ -227,10 +251,10 @@ const transacciones = [
     subcategoriaicon: '',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Familiar'],
+    etiquetas: ['Familiar', 'Apoyo'],
     metodoPago: 'Transferencia',
     nota: 'Apoyo de padres',
-    cantidad: 2000,
+    cantidad: '2000.00',
   },
   {
     fecha: new Date('2025-11-16'),
@@ -242,10 +266,10 @@ const transacciones = [
     subcategoriaicon: '🎓',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Estudio'],
-    metodoPago: 'Tarjeta',
+    etiquetas: ['Estudio', 'Curso'],
+    metodoPago: 'Cupón',
     nota: 'Pago de curso',
-    cantidad: 900,
+    cantidad: '900.00',
   },
   {
     fecha: new Date('2025-11-17'),
@@ -257,10 +281,10 @@ const transacciones = [
     subcategoriaicon: '👨‍⚕️',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Doctor'],
-    metodoPago: 'Efectivo',
+    etiquetas: ['Doctor', 'Consulta'],
+    metodoPago: 'Movil',
     nota: 'Consulta médica',
-    cantidad: 500,
+    cantidad: '500.00',
   },
   {
     fecha: new Date('2025-11-18'),
@@ -272,10 +296,10 @@ const transacciones = [
     subcategoriaicon: '🚇',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Diario'],
-    metodoPago: 'Efectivo',
+    etiquetas: [],
+    metodoPago: 'Web',
     nota: 'Viaje en metro',
-    cantidad: 30,
+    cantidad: '30.00',
   },
   {
     fecha: new Date('2025-11-19'),
@@ -287,10 +311,10 @@ const transacciones = [
     subcategoriaicon: '🎤',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Ocio'],
-    metodoPago: 'Tarjeta',
+    etiquetas: ['Ocio', 'Concierto'],
+    metodoPago: 'TC',
     nota: 'Entrada a concierto',
-    cantidad: 900,
+    cantidad: '900.00',
   },
   {
     fecha: new Date('2025-11-20'),
@@ -302,19 +326,31 @@ const transacciones = [
     subcategoriaicon: '',
     subgrupo: '',
     subgrupoicon: '',
-    etiquetas: ['Extra'],
+    etiquetas: ['Extra', 'Prestamo'],
     metodoPago: 'Transferencia',
     nota: 'Devolución de préstamo',
-    cantidad: 1000,
+    cantidad: '1000.00',
   },
 ];
 
 const TablaTransacciones = () => {
-  const [valueTransaccion, setValueTransaccion] = React.useState<Date | null>(null);
   return (
     <>
-      <div>TablaTransacciones</div>
-      <Table>
+      <Table
+        captionSide="top"
+        withColumnBorders
+        withTableBorder
+        highlightOnHover
+        highlightOnHoverColor="var(--mantine-color-dark-8)"
+      >
+        <Table.Caption>
+          <Text
+            fz="lg"
+            style={{ letterSpacing: '.4rem', fontVariant: 'all-small-caps', lineHeight: 2 }}
+          >
+            Transacciones
+          </Text>
+        </Table.Caption>
         <Table.Thead>
           <Table.Tr>
             <Table.Th
@@ -347,11 +383,9 @@ const TablaTransacciones = () => {
               Cuenta
             </Table.Th>
             <Table.Th>Categoria</Table.Th>
-            <Table.Th>{/* Grupo / Subcategoria */}</Table.Th>
-            <Table.Th>Subgrupo</Table.Th>
-            <Table.Th>Etiquetas</Table.Th>
-            <Table.Th>Método de Pago</Table.Th>
-            <Table.Th>Nota</Table.Th>
+            <Table.Th>{'Etiquetas'}</Table.Th>
+            <Table.Th>Forma</Table.Th>
+            <Table.Th style={{ minWidth: 120 }}>Nota</Table.Th>
             <Table.Th>Cantidad</Table.Th>
           </Table.Tr>
         </Table.Thead>
@@ -398,12 +432,10 @@ const TablaTransacciones = () => {
                   }
                   //TODO: definir colores dark/light mode
                   c="var(--mantine-color-dark-9)"
-                  // fullWidth
                   autoContrast
                   styles={{
                     root: {
                       justifyContent: 'left',
-                      // textAlign: 'left',
                     },
                     label: {
                       marginLeft: 2,
@@ -418,57 +450,106 @@ const TablaTransacciones = () => {
                 <Box
                   style={{
                     display: 'flex',
+                    flexDirection: 'row',
                     alignItems: 'center',
                     gap: 5,
                   }}
-                  fz={'md'}
-                  fw={600}
                 >
-                  <span>{transaccion.categoriaicon}</span>
-                  <span>{transaccion.categoria}</span>
+                  <Box component="span" lh={1.5} fz={'xl'}>
+                    {transaccion.categoriaicon}
+                  </Box>
+                  <Box component="span" pl={8} fw={500} lh={1.5} fz={'sm'}>
+                    {transaccion.categoria}
+                  </Box>
+                  {transaccion.subcategoria && transaccion.subcategoria !== '' && (
+                    <>
+                      <IconCaretRightFilled
+                        size={15}
+                        stroke={1}
+                        color="var(--mantine-color-text)"
+                      />
+                      <Box component="span" lh={1.5} fz={'sm'} fw={500}>
+                        {transaccion.subcategoria}
+                      </Box>
+                      {transaccion.subgrupo && transaccion.subgrupo !== '' && (
+                        <>
+                          <IconCaretRightFilled
+                            size={15}
+                            stroke={1}
+                            color="var(--mantine-color-text)"
+                          />
+                          <Box component="span" lh={1.5} fz={'sm'} fw={500}>
+                            {transaccion.subgrupo}
+                          </Box>
+                        </>
+                      )}
+                    </>
+                  )}
                 </Box>
               </Table.Td>
               <Table.Td>
-                <Box fz={'sm'} fw={500} lh={'md'}>
-                  {/* <span>{transaccion.subcategoriaicon}</span> */}
-                  <span>{transaccion.subcategoria}</span>
-                </Box>
+                {transaccion.etiquetas.flatMap((etiqueta, i) => (
+                  <Pill
+                    key={i}
+                    size="xs"
+                    c={getRandomEtiquetaColor()}
+                    mx={4}
+                    my={4}
+                    style={{
+                      // backgroundColor: 'var(--mantine-color-dark-4)',
+                      backgroundColor: 'transparent',
+                    }}
+                  >
+                    {etiqueta}
+                  </Pill>
+                ))}
               </Table.Td>
               <Table.Td>
-                <Box fz={'sm'} fw={500} lh={'md'}>
-                  {/* <span>{transaccion.subgrupoicon}</span> */}
-                  <span>{transaccion.subgrupo}</span>
-                </Box>
-              </Table.Td>
-              <Table.Td>
-                <Pill size="xs" variant="filled" color="blue">
-                  Trabajo
-                </Pill>
-              </Table.Td>
-              <Table.Td>
-                <Text fz={16} fw={400} c={'var(--mantine-color-dark-3)'}>
-                  {'Efectivo'}
+                <Text fz={'xs'} fw={600} c={'var(--mantine-color-dark-2)'}>
+                  {transaccion.metodoPago}
                 </Text>
               </Table.Td>
-              {/* <Table.Td>Nota</Table.Td> */}
               <Table.Td>
-                {/* Celda de nota, solo lectura */}
                 <TextInput
+                  disabled
                   size="xs"
-                  w={125}
-                  leftSection={<IconNote size={20} />}
-                  value={'Tacos 🌮'}
+                  w={180}
+                  value={transaccion.nota}
+                  styles={{
+                    root: {
+                      backgroundColor: 'var(--mantine-color-dark-9)',
+                    },
+                    input: {
+                      border: 'none',
+                      cursor: 'default',
+                      paddingLeft: 16,
+                      color: 'var(--mantine-color-dark-1)',
+                    },
+                  }}
                 />
               </Table.Td>
               <Table.Td>
-                <CantidadFinal />
+                <CantidadFinal
+                  w={115}
+                  value={transaccion.cantidad}
+                  color={
+                    transaccion.tipo === 'INGRESO'
+                      ? 'var(--mantine-color-green-5)'
+                      : transaccion.tipo === 'GASTO'
+                        ? 'var(--mantine-color-red-7)'
+                        : 'var(--mantine-color-violet-5)'
+                  }
+                />
               </Table.Td>
             </Table.Tr>
           ))}
         </Table.Tbody>
         <Table.Tfoot>
-          <Table.Tr>
-            <Table.Td>Pie de tabla</Table.Td>
+          <Table.Tr h={24}>
+            <Table.Td
+              colSpan={8}
+              style={{ backgroundColor: 'var(--mantine-color-dark-9)' }}
+            ></Table.Td>
           </Table.Tr>
         </Table.Tfoot>
       </Table>
